@@ -1,6 +1,6 @@
 # Chat_drf
 
-### Getting Started
+## Getting Started
 
 1. ##### Clone the repository onto your local machine:  
 ```git clone git@github.com:xralphlauren/Chat_drf.git```
@@ -16,16 +16,22 @@ If you choose to create your database:
 ```python3 manage.py migrate```  
 
 4. ##### Run the development server:  
-python3 manage.py runserver  
+```python3 manage.py runserver```
 
 5. ##### All requests to the server require created users. There are already 5 users in my database, if you have created your database, please create some users  
-    - First create an admin account:  
-      ```python3 manage.py createsuperuser```  
-    - Next, go to the admin panel, use your newly created account  
-      http://127.0.0.1:8000/admin  
+- First create an admin account:  
+```python3 manage.py createsuperuser```  
+- Next, go to the admin panel, use your newly created account  
+http://127.0.0.1:8000/admin  
    
 
-### ** Sample requests for Chat_drf **  
+## ** Sample requests for Chat_drf **  
+
+### before making requests to the server. You need to get a jwt token. To do this, go do the following:
+- go to url: http://127.0.0.1:8000/api/token/
+- Enter your login/password
+- Copy access token
+- Further in your requests, you need to take the following value in the header: {'Authorization': 'Bearer your_token'}
 
 1. ##### Creating or deleting threads (Post/Delete)  
 http://127.0.0.1:8000/api/create_delete_thread/1/2  
@@ -44,8 +50,9 @@ http://127.0.0.1:8000/api/get_threads/3
 http://127.0.0.1:8000/api/get_threads/4  
 http://127.0.0.1:8000/api/get_threads/5  
 
-3. G##### et a list of messages for thread or create a new one (Post/Get)  
-If you want to create messages, you must also specify the sender ID and message text in the request body. Example: {"sender": 2, "message_text": "some random Text 555"}  
+3. ##### Get a list of messages for thread or create a new one (Post/Get)  
+If you want to create messages, you must also specify the sender ID and message text in the request body.  
+Example: {"sender": 2, "message_text": "some random Text 555"}  
 http://127.0.0.1:8000/api/get_create_message/1  
 http://127.0.0.1:8000/api/get_create_message/2  
 http://127.0.0.1:8000/api/get_create_message/3  
