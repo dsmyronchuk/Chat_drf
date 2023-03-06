@@ -3,15 +3,14 @@ from rest_framework import status
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from Threads.models import *
 from Threads.serializers import *
 from Threads.pagination import *
 from rest_framework.permissions import IsAuthenticated
-from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class CreateDeleteThreads(APIView):
     serializer_class = ThreadsSerializers
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, user1_id, user2_id):
         thread = Thread.objects.filter(participants__in=[user1_id, user2_id]).\
@@ -50,6 +49,7 @@ class CreateDeleteThreads(APIView):
 class GetThreads(ListAPIView):
     serializer_class = ThreadsSerializers
     pagination_class = ThreadsPagination
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         user = self.kwargs['user_id']
@@ -65,6 +65,7 @@ class GetThreads(ListAPIView):
 class GetCreateMessage(APIView):
     serializer_class = MessageSerializer
     pagination_class = ThreadsPagination
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, thread_id):
         messages = Message.objects.filter(thread_id=thread_id)
@@ -87,6 +88,7 @@ class GetCreateMessage(APIView):
 
 class SetMessageStatus(APIView):
     pagination_class = ThreadsPagination
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         message_id = request.data.get('message_id', [])
