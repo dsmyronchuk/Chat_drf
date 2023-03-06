@@ -1,6 +1,6 @@
-## ** Chat_drf **
+# Chat_drf
 
-### ** Getting Started **
+### Getting Started
 
 1. Clone the repository onto your local machine:
 git clone git@github.com:xralphlauren/Chat_drf.git
