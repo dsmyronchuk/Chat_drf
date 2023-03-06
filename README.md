@@ -25,7 +25,7 @@ If you choose to create your database:
 http://127.0.0.1:8000/admin  
    
 
-## ** Sample requests for Chat_drf **  
+## Sample requests for Chat_drf  
 
 ### before making requests to the server. You need to get a jwt token. To do this, go do the following:
 - go to url: http://127.0.0.1:8000/api/token/
