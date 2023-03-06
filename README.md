@@ -2,25 +2,25 @@
 
 ### Getting Started
 
-1. Clone the repository onto your local machine:
-*git clone git@github.com:xralphlauren/Chat_drf.git*
+1. ##### Clone the repository onto your local machine:
+```git clone git@github.com:xralphlauren/Chat_drf.git```
 
 2. Create a virtual environment and install the required dependencies:
-*python3 -m venv venv*
-*source venv/bin/activate*
+```python3 -m venv venv```
+```source venv/bin/activate```
 ```pip install -r requirements.txt```
 
 3. You can use the already created database or delete the old one and create your own.
 If you choose to create your database:
-*python3 manage.py makemigrations*
-*python3 manage.py migrate*
+```python3 manage.py makemigrations```
+```python3 manage.py migrate```
 
 4. Run the development server:
 python3 manage.py runserver
 
 5. All requests to the server require created users. There are already 5 users in my database, if you have created your database, please create some users
     - First create an admin account:
-      *python3 manage.py createsuperuser*
+      ```python3 manage.py createsuperuser```
     - Next, go to the admin panel, use your newly created account
       http://127.0.0.1:8000/admin
    
